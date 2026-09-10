@@ -6,11 +6,19 @@ __pycache__/
 venv/
 .venv/
 
-# Model checkpoints
-checkpoints/
-
-# Datasets / processed data
+# Datasets
 data/
+dataset/
+
+# Model files
+models/
+checkpoints/
+*.pt
+*.pth
+*.pkl
+
+# Results
+results/
 
 # Environment / secrets
 .env
