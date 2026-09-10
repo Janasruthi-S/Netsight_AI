@@ -1,0 +1,19 @@
+# Python
+__pycache__/
+*.pyc
+
+# Virtual environment
+venv/
+.venv/
+
+# Model checkpoints
+checkpoints/
+
+# Datasets / processed data
+data/
+
+# Environment / secrets
+.env
+
+# Logs
+*.log
