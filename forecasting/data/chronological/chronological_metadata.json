@@ -1,0 +1,70 @@
+{
+    "dataset": {
+        "rows": 2830743,
+        "features": 78,
+        "classes": 15,
+        "class_names": [
+            "BENIGN",
+            "Bot",
+            "DDoS",
+            "DoS GoldenEye",
+            "DoS Hulk",
+            "DoS Slowhttptest",
+            "DoS slowloris",
+            "FTP-Patator",
+            "Heartbleed",
+            "Infiltration",
+            "PortScan",
+            "SSH-Patator",
+            "Web Attack \ufffd Brute Force",
+            "Web Attack \ufffd Sql Injection",
+            "Web Attack \ufffd XSS"
+        ]
+    },
+    "lstm": {
+        "checkpoint": "C:\\Users\\lenovo\\OneDrive\\Desktop\\NetSight\\lstm\\models\\best_world_model_ids.pth",
+        "input_dimension": 78,
+        "latent_dimension": 128,
+        "hidden_size": 128,
+        "layers": 2,
+        "sequence_length": 20,
+        "frozen": true
+    },
+    "forecasting": {
+        "forecast_horizon": 5,
+        "temporal_interval": null,
+        "history_length": 20
+    },
+    "chronological_split": {
+        "method": "original dataset row ordering",
+        "train_ratio": 0.7,
+        "validation_ratio": 0.15,
+        "test_ratio": 0.15,
+        "train": {
+            "row_start": 0,
+            "row_end_exclusive": 1981520,
+            "anchor_start": 19,
+            "anchor_end": 1981514,
+            "samples": 1981496
+        },
+        "validation": {
+            "row_start": 1981520,
+            "row_end_exclusive": 2406131,
+            "anchor_start": 1981520,
+            "anchor_end": 2406125,
+            "samples": 424606
+        },
+        "test": {
+            "row_start": 2406131,
+            "row_end_exclusive": 2830743,
+            "anchor_start": 2406131,
+            "anchor_end": 2830737,
+            "samples": 424607
+        }
+    },
+    "files": {
+        "latents": "full_final_latents.npy",
+        "labels": "full_labels.npy"
+    },
+    "scientific_limitation": "The supplied dataset contains no timestamp column. Therefore original row ordering is used as the temporal ordering for this prototype. The forecast horizon represents future sequential records, not guaranteed real-world minutes. The LSTM checkpoint was previously trained using a random stratified split and is kept frozen here. Therefore this chronological forecasting evaluation is a prototype and should not be described as a completely leakage-free temporal experiment."
+}

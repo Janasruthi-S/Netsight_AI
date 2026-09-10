@@ -1,0 +1,61 @@
+{
+    "project": {
+        "name": "NetSight AI",
+        "module": "Forecasting"
+    },
+    "data": {
+        "latent_file": "C:\\Users\\lenovo\\OneDrive\\Desktop\\NetSight\\forecasting\\data\\chronological\\full_final_latents.npy",
+        "label_file": "C:\\Users\\lenovo\\OneDrive\\Desktop\\NetSight\\forecasting\\data\\chronological\\full_labels.npy",
+        "latent_rows_used": 2830724,
+        "latent_dimension": 128
+    },
+    "forecasting": {
+        "sequence_length": 20,
+        "forecast_horizon": 5,
+        "num_classes": 15,
+        "class_names": [
+            "BENIGN",
+            "Bot",
+            "DDoS",
+            "DoS GoldenEye",
+            "DoS Hulk",
+            "DoS Slowhttptest",
+            "DoS slowloris",
+            "FTP-Patator",
+            "Heartbleed",
+            "Infiltration",
+            "PortScan",
+            "SSH-Patator",
+            "Web Attack \ufffd Brute Force",
+            "Web Attack \ufffd Sql Injection",
+            "Web Attack \ufffd XSS"
+        ],
+        "benign_index": 0,
+        "temporal_interval": null
+    },
+    "split": {
+        "method": "stratified prototype split because the merged dataset has no explicit timestamp",
+        "train_samples": 400000,
+        "validation_samples": 60000,
+        "test_samples": 60000
+    },
+    "lstm": {
+        "frozen": true,
+        "training_performed": false,
+        "backpropagation_performed": false
+    },
+    "forecasting_models": [
+        "Transformer World Model",
+        "GRU Dynamics Model",
+        "TCN Dynamics Model",
+        "Ensemble Fusion"
+    ],
+    "checkpoint": {
+        "path": "C:\\Users\\lenovo\\OneDrive\\Desktop\\NetSight\\forecasting\\checkpoints\\best_forecasting_model.pt",
+        "selection_metric": "0.7 * validation_macro_f1 + 0.3 * validation_attack_f1",
+        "best_epoch": 2,
+        "best_validation_macro_f1": 0.8609332390828236,
+        "best_validation_attack_f1": 0.9951878839054935
+    },
+    "scientific_note": "The supplied merged dataset contains no explicit timestamp column. Therefore this emergency prototype uses stratified forecasting anchors to preserve attack-class coverage. The forecast horizon represents future sequential records rather than guaranteed real-world minutes. A production deployment should replace this with timestamped temporal windows."
+}
